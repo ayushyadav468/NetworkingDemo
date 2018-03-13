@@ -74,18 +74,17 @@ public class CoursesAsyncTask extends AsyncTask<String, Void, ArrayList<Course>>
 
     private ArrayList<Course> parseCourses(String result) throws JSONException {
         ArrayList<Course> courses = new ArrayList<>();
-        JSONObject rootObject = new JSONObject(result);
-        JSONObject data = rootObject.getJSONObject("data");
-        JSONArray coursesJSONArray = data.getJSONArray("courses");
-        for(int i = 0; i < coursesJSONArray.length(); i++){
-            JSONObject courseObject = coursesJSONArray.getJSONObject(i);
-            int id = courseObject.getInt("id");
-            String title = courseObject.getString("title");
-            String name = courseObject.getString("name");
-            String overview = courseObject.getString("overview");
-            Course course = new Course(id,title,name,overview);
+        JSONArray rootArray = new JSONArray(result);
+        for(int i = 0; i < rootArray.length(); i++){
+            JSONObject jsonObject = rootArray.getJSONObject(i);
+            int id = jsonObject.getInt("id");
+            String name = jsonObject.getString("name");
+            String userName = jsonObject.getString("username");
+            String emailId = jsonObject.getString("email");
+            Course course = new Course(id, name,userName, emailId);
             courses.add(course);
         }
+
         return courses;
     }
 

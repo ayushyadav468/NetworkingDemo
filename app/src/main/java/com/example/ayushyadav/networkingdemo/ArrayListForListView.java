@@ -1,18 +1,24 @@
 package com.example.ayushyadav.networkingdemo;
 
 /**
- * Created by ayushyadav on 11/03/18.
+ * Created by ayushyadav on 12/03/18.
  */
 
-public class Course {
+public class ArrayListForListView {
 
     private int id;
     private String name;
     private String userName;
     private String emailId;
 
-    public Course(int id, String name, String userName, String emailId) {
+    public ArrayListForListView(int id, String name, String userName, String emailId) {
         this.id = id;
+        this.name = name;
+        this.userName = userName;
+        this.emailId = emailId;
+    }
+
+    public ArrayListForListView(String name, String userName, String emailId) {
         this.name = name;
         this.userName = userName;
         this.emailId = emailId;
